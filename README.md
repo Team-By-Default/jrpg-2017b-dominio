@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/XXX/jrpg-2017b-dominio.svg?branch=master)](https://travis-ci.org/XXX/jrpg-2017b-dominio)
+[![Build Status](https://travis-ci.org/Team-By-Default/jrpg-2017b-dominio.svg?branch=master)](https://travis-ci.org/Team-By-Default/jrpg-2017b-dominio)
 # World Of Middle Earth (WOME) - dominio
 
 ## Sobre las personas
