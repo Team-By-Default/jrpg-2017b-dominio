@@ -191,6 +191,17 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * Nombre de la casta del personaje.
 	 */
 	private String nombreCasta;
+	/**
+	 * Puntos pendientes para asignar a los skills
+	 */
+	private int puntosAsignar;
+	/**
+	 * Guardo la destreza, inteligencia y fuerza base con que se creó el personaje
+	 * para poder reiniciar los skills a ese punto.
+	 */
+	private int destrezaBase;
+	private int inteligenciaBase;
+	private int fuerzaBase;
 
 
 	/**
@@ -252,6 +263,11 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		ataque = this.calcularPuntosDeAtaque();
 		magia = this.calcularPuntosDeMagia();
 		this.aumentarDefensa(destreza);
+		
+		this.puntosAsignar = 0;
+		this.destrezaBase = this.destreza;
+		this.inteligenciaBase = this.inteligencia;
+		this.fuerzaBase = this.getFuerza();
 
 	}
 	/** La clase Personaje es la cual posee todos los atributos.
@@ -296,6 +312,11 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 
 		this.ataque = this.calcularPuntosDeAtaque();
 		this.magia = this.calcularPuntosDeMagia();
+		
+		this.puntosAsignar = 0;
+		this.destrezaBase = this.destreza;
+		this.inteligenciaBase = this.inteligencia;
+		this.fuerzaBase = this.getFuerza();
 	}
 
 
@@ -417,6 +438,55 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	public final int getEnergiaTope() {
 		return energiaTope;
 	}
+	
+	/**
+	 * Retorna la inteligencia base, la inteligencia con la que se
+	 * creó el personaje.
+	 * Sirve para reiniciar los skills.
+	 * @return inteligencia base
+	 */
+	public int getInteligenciaBase() {
+		return this.inteligenciaBase;
+	}
+	/**
+	 * Retorna la destreza base, la destreza con la que se creó el
+	 * personaje.
+	 * Sirve para reiniciar los skills.
+	 * @return destreza base
+	 */
+	public int getDestrezaBase() {
+		return this.destrezaBase;
+	}
+	/**
+	 * Retorna la fuerza base, la fuerza con la que se creó el
+	 * personaje.
+	 * Sirve para reiniciar los skills.
+	 * @return fuerza base
+	 */
+	public int getFuerzaBase() {
+		return this.fuerzaBase;
+	}
+	
+	/**
+	 * Retorna los puntos que el personaje todavía puede repartir
+	 * entre los skills.
+	 * @return puntos a asignar
+	 */
+	public int getPuntosAsignar() {
+		return this.puntosAsignar;
+	}
+	
+	/**
+	 * Setea el atributo del personaje puntosAsignar con un nuevo
+	 * valor.
+	 * Sirve para guardar los puntos quitados de cada skill al
+	 * reiniciar los skills.
+	 * @param puntos: nuevo valor de puntos a asignar
+	 */
+	public void setPuntosAsignar(int puntos) {
+		this.puntosAsignar = puntos;
+	}
+	
 	/**
 	 * Método que retorna un entero.
 	 * Dpendiendo del resultado de las comparaciones entre
