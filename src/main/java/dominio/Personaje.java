@@ -92,6 +92,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	private static final int ENERGIATOPESUBIRN = 20;
 	/**
+	 * Aumento los puntos para asignar a skills al subir de nivel
+	 */
+	private static final int PUNTOSASIGNARSUBIRN = 3;
+	/**
 	 * Cantidad a multiplicar.
 	 * Para obtener los puntos de ataque de personaje.
 	 */
@@ -796,6 +800,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 			this.modificarAtributos();
 			this.saludTope += SALUDTOPESUBIRN;
 			this.energiaTope += ENERGIATOPESUBIRN;
+			this.puntosAsignar += PUNTOSASIGNARSUBIRN;
 		}
 		this.experiencia -= acumuladorExperiencia;
 	}
