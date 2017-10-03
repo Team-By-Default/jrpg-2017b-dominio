@@ -77,7 +77,9 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 * que produce una variación en los atributos.
 	 */
 	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
-		super(0, 0, nivel, nombre);
+		super(0, 0, nivel, nombre,0,0);
+		//este metodo determina la posicion de spawn del npc.
+		posicionSpawnNpc();
 
 		int dificultad;
 		if (dificultadNPC == DIFICULTADALEATORIA) {
@@ -91,8 +93,29 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 		this.salud = MODIFICADORBASES * (dificultad + 1) + (nivel - 1) * MULTIPLICADORS * (dificultad + 1);
 		this.aumentarDefensa(MODIFICADORBASED * (dificultad + 1) +
 				(nivel - 1) * MULTIPLICADORD * (dificultad + 1));
+		
+		
+	}
+	
+	public void setPosicion(int x,int y){
+		this.setPosicionX(x);
+		this.setPosicionY(y);
+	}
+	
+	public int getPosicionX(){
+		return this.getPosicionX();
+	}
+	
+	public int getPosicionY(){
+		return this.getPosicionY();
 	}
 
+	protected void posicionSpawnNpc(){		
+		//condicion 1: no sea zona visible por ningun personaje y este  dentro del mapa.
+		
+		//condicion 2: sea zona viable
+
+	}
 	/**
 	 * Retorna un entero.
 	 * Que la cantidad de experiencia que
