@@ -236,6 +236,8 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		nombreCasta = casta.getNombreCasta();
 		habilidadesRaza = getHabilidadesRaza();
 		habilidadesCasta = casta.getHabilidadesCasta();
+		x = POSXI;                              
+		y = POSYI;
 		salud = saludTope;
 
 		energia = energiaTope;

@@ -94,7 +94,6 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 		this.aumentarDefensa(MODIFICADORBASED * (dificultad + 1) +
 				(nivel - 1) * MULTIPLICADORD * (dificultad + 1));
 		
-		
 	}
 	
 	public void setPosicion(int x,int y){
