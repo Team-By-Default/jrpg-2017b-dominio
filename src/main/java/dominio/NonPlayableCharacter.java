@@ -64,7 +64,18 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 * Multiplicador defensa del NPC.
 	 */
 	private static final int MULTIPLICADORD = 1;
+	/**
+	 * Salud tope con que se inicializa el NPC
+	 */
+	private static final int SALUDTOPEINICIAL = 100;
+	/**
+	 * Salud tope del NPC
+	 */
+	private int saludTope;
 
+	
+	
+	
 	/**
 	 * Constructor de la Clase.
 	 * Dependiendo de la dificultad que se pasa por parámetro al
@@ -80,6 +91,7 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 		//este metodo determina la posicion de spawn del npc.
 		posicionSpawnNpc();
 
+		this.saludTope = SALUDTOPEINICIAL;
 		int dificultad;
 		if (dificultadNPC == DIFICULTADALEATORIA) {
 			dificultad = this.getRandom().nextInt(ELEGIRDIF);
@@ -114,6 +126,7 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 		//condicion 2: sea zona viable
 
 	}
+	
 	/**
 	 * Retorna un entero.
 	 * Que la cantidad de experiencia que
@@ -156,6 +169,14 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 */
 	public final void setSalud(final int salud) {
 		this.salud = salud;
+	}
+	
+	/**
+	 * Devuelve un entero con la saludTope del NPC
+	 * @return salud tope
+	 */
+	public int getSaludTope() {
+		return this.saludTope;
 	}
 
 	/**

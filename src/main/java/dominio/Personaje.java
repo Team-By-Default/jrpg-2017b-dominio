@@ -183,28 +183,8 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	private String nombreCasta;
 
-
-	/**
-	 * Metodo que retorna las habilidades que posee el personaje.
-	 * Segun la casta del mismo.
-	 * @return String[] de habilidades casta.
-	 */
-
-	public final String[] getHabilidadesCasta() {
-		return casta.getHabilidadesCasta();
-	}
-	/**
-	 * Metodo estatico.
-	 * Que sirve para cargar la tabla de niveles de personaje.
-	 */
-	public static void cargarTablaNivel() {
-		Personaje.setTablaDeNiveles(new int[CANTIDADNIVELES]);
-		Personaje.getTablaDeNiveles()[0] = 0;
-		Personaje.getTablaDeNiveles()[1] = 0;
-		for (int i = 2; i < CANTIDADNIVELES; i++) {
-			Personaje.getTablaDeNiveles()[i] = Personaje.getTablaDeNiveles()[i - 1] + CONSTANTENIVEL;
-		}
-	}
+	
+	
 	/** La clase Personaje es la cual posee todos los atributos.
 	 * Algunos serán completados por las clases hijo (Elfo,Humano,Orco)
 	 * como por ejemplo el array habilidadesRaza[].
@@ -247,6 +227,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.aumentarDefensa(destreza);
 
 	}
+	
 	/** La clase Personaje es la cual posee todos los atributos.
 	 * De los personajes del juego.
 	 * Algunos serán completados por las clases hijo
@@ -293,6 +274,27 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 
 
 
+	/**
+	 * Metodo que retorna las habilidades que posee el personaje.
+	 * Segun la casta del mismo.
+	 * @return String[] de habilidades casta.
+	 */
+
+	public final String[] getHabilidadesCasta() {
+		return casta.getHabilidadesCasta();
+	}
+	/**
+	 * Metodo estatico.
+	 * Que sirve para cargar la tabla de niveles de personaje.
+	 */
+	public static void cargarTablaNivel() {
+		Personaje.setTablaDeNiveles(new int[CANTIDADNIVELES]);
+		Personaje.getTablaDeNiveles()[0] = 0;
+		Personaje.getTablaDeNiveles()[1] = 0;
+		for (int i = 2; i < CANTIDADNIVELES; i++) {
+			Personaje.getTablaDeNiveles()[i] = Personaje.getTablaDeNiveles()[i - 1] + CONSTANTENIVEL;
+		}
+	}
 
 	/**Retorna un entero con el ataque del personaje.
 	 * @return ataque del personaje.
