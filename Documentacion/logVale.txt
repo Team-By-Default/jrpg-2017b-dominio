@@ -1,0 +1,5 @@
+# Log de modificaciones de Vale
+
+14/10/2017
+* En Personaje.java muevo getHabilidadesCasta() y cargarTablaNivel() mas abajo, que quede el constructor primero
+* En NonPlayableCharacter.java agrego la constante SALUDTOPEINICIAL, el atributo saludTope, lo inicializo en el constructor y le hago un setter
