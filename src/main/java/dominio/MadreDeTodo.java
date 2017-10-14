@@ -31,7 +31,14 @@ public abstract class MadreDeTodo {
 	private RandomGenerator random;
 
 	protected ArrayList<Item> items = new ArrayList<Item>();
-
+	/**
+	 * Posicion en X.
+	 */
+	private int x;
+	/**
+	 * Posicion en Y.
+	 */
+	private int y;
 
 
 	/** Clase abstracta.
@@ -47,14 +54,31 @@ public abstract class MadreDeTodo {
 	 * @param nombre valor otorgado por
 	 * el constructor de NPC o Personaje.
 	 */
-	public MadreDeTodo(final int fuerza, final int defensa, final int nivel, final String nombre) {
+	public MadreDeTodo(final int fuerza, final int defensa, final int nivel, final String nombre, int x,int y) {
 		this.fuerza = fuerza;
 		this.defensa = defensa;
 		this.nivel = nivel;
 		this.nombre = nombre;
 		this.random = new MyRandom();
+		this.x = x;
+		this.y = y;
 	}
-
+	
+	public int getPosicionX(){
+		return this.x;
+	}
+	
+	public void setPosicionX(int x){
+		this.x=x;
+	}
+	
+	public int getPosicionY(){
+		return this.y;
+	}
+	
+	public void setPosicionY(int y){
+		this.y=y;
+	}
 
 	/** Método que devuelve la fuerza del personaje o NPC.
 	 * @return fuerza del personaje o NPC.

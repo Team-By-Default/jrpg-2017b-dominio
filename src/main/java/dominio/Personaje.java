@@ -1,4 +1,3 @@
-
 package dominio;
 
 import java.io.Serializable;
@@ -156,14 +155,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	private Casta casta;
 	/**
-	 * Posicion en X del Personaje.
-	 */
-	private int x;
-	/**
-	 * Posicion en Y del Personaje.
-	 */
-	private int y;
-	/**
 	 * Experiencia del Personaje.
 	 */
 	private int experiencia;
@@ -225,7 +216,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * @param id Identificador del personaje
 	 */
 	public Personaje(final String nombre, final Casta casta, final int id) {
-		super(FUERZAINICIAL, DEFENSAINICIAL, NIVELINICIAL, nombre);
+		super(FUERZAINICIAL, DEFENSAINICIAL, NIVELINICIAL, nombre,POSXI,POSYI);
 
 
 		this.casta = casta;
@@ -244,8 +235,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		nombreCasta = casta.getNombreCasta();
 		habilidadesRaza = getHabilidadesRaza();
 		habilidadesCasta = casta.getHabilidadesCasta();
-		x = POSXI;
+		/*
+		 * x = POSXI;                              
 		y = POSYI;
+		*/
 		salud = saludTope;
 
 		energia = energiaTope;
@@ -276,7 +269,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 			final int destreza, final int inteligencia, final Casta casta,
 			final int experiencia, final int nivel,
 			final int idPersonaje) {
-		super(fuerza, 0, nivel, nombre);
+		super(fuerza, 0, nivel, nombre,POSXI,POSYI);
 
 		this.salud = salud;
 		this.energia = energia;
@@ -774,7 +767,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * @return La distancia entre los dos Personajes
 	 */
 	public final double distanciaCon(final Personaje p) {
-		return Math.sqrt(Math.pow(this.x - p.x, 2) + Math.pow(this.y - p.y, 2));
+		return Math.sqrt(Math.pow(this.getPosicionX() - p.getPosicionX(), 2) + Math.pow(this.getPosicionY() - p.getPosicionY(), 2));
 	}
 	/**Metodo que retorna un boolean.
 	 * Si pudo realizar exitosamente o no
@@ -991,4 +984,3 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	}
 
 }
-
