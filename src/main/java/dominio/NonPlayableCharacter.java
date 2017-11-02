@@ -88,8 +88,6 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 */
 	public NonPlayableCharacter(final String nombre, final int nivel, final int dificultadNPC) {
 		super(0, 0, nivel, nombre,0,0);
-		//este metodo determina la posicion de spawn del npc.
-		posicionSpawnNpc();
 
 		this.saludTope = SALUDTOPEINICIAL;
 		int dificultad;
@@ -107,7 +105,7 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 		
 	}
 	
-	public void setPosicion(int x,int y){
+	/*public void setPosicion(int x,int y){
 		this.setPosicionX(x);
 		this.setPosicionY(y);
 	}
@@ -118,14 +116,7 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	
 	public int getPosicionY(){
 		return this.getPosicionY();
-	}
-
-	protected void posicionSpawnNpc(){		
-		//condicion 1: no sea zona visible por ningun personaje y este  dentro del mapa.
-		
-		//condicion 2: sea zona viable
-
-	}
+	}*/
 	
 	/**
 	 * Retorna un entero.
