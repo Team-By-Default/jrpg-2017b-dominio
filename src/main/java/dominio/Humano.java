@@ -4,23 +4,23 @@ package dominio;
 /**La clase Humano hereda de la clase Personaje.
  * Completa ciertos atributos que estaban
  * declarados en la clase Personaje,
- * como por ejemplo habilidadesRaza[]
+ * como por ejemplo habilidadesRaza[].
  */
 public class Humano extends Personaje {
 	/**
-	 * Energia minima que se necesita para realizar una habilidad.
+	 * Energía miníma que se necesita para realizar una habilidad.
 	 */
 	private static final int ENERGIAMINIMA = 10;
 	/**
-	 * Numero por el cual se divide la salud.
+	 * Número por el cual se divide la salud.
 	 */
 	private static final int DIVISORSALUD = 2;
 	/**
-	 * Numero por el cual se divide la energia.
+	 * Número por el cual se divide la energía.
 	 */
 	private static final int DIVISORENERGIA = 2;
 	/**
-	 * Bonus de energia obtenido por ser de casta Humano.
+	 * Bonus de energía obtenido por ser de casta Humano.
 	 */
 	private static final int BONUSENERGIA = 5;
 	/**
@@ -28,33 +28,28 @@ public class Humano extends Personaje {
 	 */
 	private static final int BONUSSALUD = 5;
 
-	/**La clase Humano hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban
-	 * declarados en la clase Personaje,
-	 * como por ejemplo habilidadesRaza[]
+	/**Llama al constructor del padre (Personaje)
+	 * pasándole los argumentos recibidos.
 	 * @param nombre Indica el nombre el personaje
 	 * @param casta Indica la casta(Raza) del personaje
 	 * @param id Identificador del personaje
 	 */
 	public Humano(final String nombre, final Casta casta, final int id) {
 		super(nombre, casta, id);
-
-		//POR QUE ACA NO COMPLETA EL ARRAY??
 	}
-	/** La clase Humano hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban declarados en
-	 * la clase Personaje, como por ejemplo habilidadesRaza[]
-	 * Recibe la mayoría de los atributos
-	 * @param nombre Nombre del personaje
-	 * @param salud Salud del personaje
-	 * @param energia Energia del personaje
-	 * @param fuerza Fuerza del Personaje
-	 * @param destreza Destreza del personaje
-	 * @param inteligencia Inteligencia del personaje
-	 * @param casta Casta(Raza) del personaje
-	 * @param experiencia Experiencia del personaje
-	 * @param nivel Nivel del personaje
-	 * @param idPersonaje Id del personaje
+	/**Llama al constructor del padre (Personaje)
+	 * pasándole los argumentos recibidos.
+	 * Recibe la mayoría de los atributos.
+	 * @param nombre Nombre del personaje.
+	 * @param salud Salud del personaje.
+	 * @param energia Energía del personaje.
+	 * @param fuerza Fuerza del Personaje.
+	 * @param destreza Destreza del personaje.
+	 * @param inteligencia Inteligencia del personaje.
+	 * @param casta Casta(Raza) del personaje.
+	 * @param experiencia Experiencia del personaje.
+	 * @param nivel Nivel del personaje.
+	 * @param idPersonaje Id del personaje.
 	 */
 	public Humano(final String nombre, final int salud, final int energia, final int fuerza,
 			final int destreza, final int inteligencia, final Casta casta,
@@ -63,21 +58,17 @@ public class Humano extends Personaje {
 	}
 
 
-	/** Retorna un booleano dependiendo de si se
-	 * realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque
-	 * pueda realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
+	/** Efectua de ser posible la habilidad 1 de la Raza.
+	 * Para que la habilidad pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
 	 * descuentan seguido de comprobar que los posee,
-	 * de lo contrario el ataque no será posible
-	 * y se retornará false
-	 * El método serAtacado() tiene como argumento
-	 * la suma del valor del atributo ataque
-	 * y magia del llamador.
+	 * de lo contrario la habilidad no podra efectuarse.
+	 * La habilidad consiste en incrementar el ataque del llamador
+	 * sumandole el valor de su magia.
 	 * @param atacado Instancia de Personaje o de NPC,
 	 * dependiendo de cual sea, será como responda el
-	 * método serAtacado()
-	 * @return booleano que determina si el ataque fue exitoso o no.
+	 * método serAtacado()-
+	 * @return booleano que determina si la habilidad se ejecuto con éxito o no.
 	 */
 	@Override
 	public final boolean habilidadRaza1(final Peleable atacado) {
@@ -90,22 +81,19 @@ public class Humano extends Personaje {
 	}
 
 
-	/** Retorna un booleano dependiendo de si se
-	 * realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque
-	 * pueda realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
+	/** Efectua de ser posible la habilidad 1 de la Raza.
+	 * Para que la habilidad pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
 	 * descuentan seguido de comprobar que los posee,
-	 * de lo contrario el ataque no será posible y
-	 * se retornará false
-	 * El método serAtacado() recibe como parámetro
-	 * la mitad del valor de la salud del atacado,
-	 * si el valor retornado es mayor a 0, el valor
+	 * de lo contrario la habilidad no podra efectuarse.
+	 * La habilidad consiste en efectuar el ataque con la 
+	 * mitad del valor de la salud del atacado.
+	 * Pero si este ataquen no efectua daño al oponente, el valor
 	 * del atributo energia del llamador será
 	 * reducido a la mitad.
 	 * @param atacado Instancia de Personaje o de NPC,
 	 * dependiendo de cual sea, será como responda el
-	 * método serAtacado()
+	 * método serAtacado().
 	 * @return booleano que determina si el ataque fue exitoso o no.
 	 */
 	@Override
@@ -136,9 +124,9 @@ public class Humano extends Personaje {
 	public final int getSaludBonus() {
 		return BONUSSALUD;
 	}
-	/**Retorna un entero con el bonificador de energia
+	/**Retorna un entero con el bonificador de energía
 	 * de la raza.
-	 * @return Retorna la energia extra para esta raza.
+	 * @return Retorna la energía extra para esta raza.
 	 */
 	@Override
 	public final int getEnergiaBonus() {
