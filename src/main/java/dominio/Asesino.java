@@ -2,18 +2,12 @@
 package dominio;
 
 /** La clase Asesino es una casta de Personaje.
- * Hereda de la clase Casta
- * posee dos constructores.
- * El otro constructor, llama al constructor de
- * la clase padre (Casta)
- * pasándole los argumentos recibidos
- * por el constructor hijo y luego inicializa la
- * variable nombreCasta
+ * Hereda de la clase Casta.
  */
 
 public class Asesino extends Casta {
 	/**
-	 * Energia minima necesario para realizar una habilidad.
+	 * Energía mínima necesaria para realizar una habilidad.
 	 */
 	private static final int ENERGIAMINIMA = 10;
 	/**
@@ -25,58 +19,51 @@ public class Asesino extends Casta {
 	 */
 	private static final double AUMENTARPROBEVITAR = 0.15;
 	/**
-	 * Probabilidad de evitar dano por defecto.
+	 * Probabilidad de evitar daño por defecto.
 	 */
 	private static final double PROBEVITARDANIO = 0.5;
 
 
-	/** La clase Asesino es una casta de Personaje.
-	 * hereda de la clase Casta
-	 * posee dos constructores.
-	 * El otro constructor, llama al constructor de
+	/** Llama al constructor de
 	 * la clase padre (Casta)
 	 * pasándole los argumentos recibidos
 	 * por el constructor hijo y luego inicializa la
-	 * variable nombreCasta
+	 * variable nombreCasta.
 	 * @param probCrit Probabilidad de que el
-	 * personaje realice un golpe crítico
+	 * personaje realice un golpe crítico.
 	 * @param evasion Probabilidad de que el
-	 * personaje evite un golpe crítico
+	 * personaje evite un golpe crítico.
 	 * @param danioCrit Valor por el cual será
-	 * multiplicado el golpe básico
+	 * multiplicado el golpe básico.
 	 */
 
 public Asesino(final double probCrit, final double evasion, final double danioCrit) {
 	super(probCrit, evasion, danioCrit);
 }
-	/** El constructor por defecto, llama al constructor por defecto.
-	 * padre (Casta), inicializando probabilidadGolpeCritico,
+	/** El constructor por defecto, llama al constructor por defecto
+	 * 	padre (Casta), inicializando probabilidadGolpeCritico,
 	 *  probabilidadEvitarDaño, dañoCritico,
-	 * con valores predeterminados.
+	 * 	con valores predeterminados.
 	 */
 	public Asesino() {
 		super();
 	}
 
 
-	/**Retorna un booleano.
-	 * Dependiendo de si se realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque
-	 * pueda realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
+	/**Intenta realizar un ataque aplicando la habilidad 1 de la casta
+	 * Para que el ataque pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
 	 * descuentan seguido de comprobar que los posee,
-	 * de lo contrario el ataque no será posible
-	 * y se retornará false
+	 * de lo contrario el ataque no será posible.
 	 * De ser posible el ataque, se llama al método
 	 * serAtacado() del argumento atacado el cual actuará de
 	 * cierta manera dependiendo de que clase
-	 * sea el argumento atacado
-	 * @param caster Personaje atacante
+	 * sea el argumento atacado.
+	 * @param caster Personaje atacante.
 	 * @param atacado puede recibir como argumento
 	 * una instancia de Personaje o de NPC
 	 * (NonPlayableCharacter)
-	 * ya que ambas implementan la interface
-	 * Peleable
+	 * ya que ambas implementan la interface Peleable.
 	 * @return retorna si el ataque fue realizado
 	 * con éxito o no.
 	 */
@@ -95,22 +82,17 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 	}
 
 
-	/** Retorna un booleano.
-	 * Dependiendo de si se
-	 * realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque pueda
-	 * realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
+	/** Efectua de ser posible la habilidad 2 de la casta.
+	 * Para que la habilidad pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
 	 * descuentan seguido de comprobar que los posee,
-	 * de lo contrario el ataque no será posible y
-	 * se retornará false
-	 * @param caster Personaje que realiza el ataque,
-	 * en este caso no es un ataque si no un aumento en
-	 * las caracteristicas del caster en este caso
-	 * incrementa el atributo probabilidadEvitarDaño
+	 * de lo contrario la habilidad no podra efectuarse.
+	 * La habilidad es realizar un aumento 
+	 * en el atributo probabilidadEvitarDaño.
+	 * @param caster Personaje que efectua la habilidad.
 	 * @param atacado no cumple función alguna
-	 * dentro de este método
-	 * @return retorna si el ataque fue realizado
+	 * dentro de este método.
+	 * @return retorna si la habilidad fue realizada
 	 * con éxito o no.
 	 */
 	@Override
@@ -127,35 +109,30 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 		return false;
 	}
 
-	/** Not implemented yet.
+	/** No implementado hasta el momento.
 	 * @param caster Personaje que realiza el ataque.
-	 * @param atacado .
+	 * @param atacado.
 	 * @return Retorna falso.
 	 */
 	@Override
 	public final boolean habilidad3(final Personaje caster, final Peleable atacado) {
 		return false;
 	}
-	/** Retorna un entero.
-	 * Que otorga el bonus de  destreza perteneciente a esta casta.
-	 * @return Retorna la destreza extra
-	 * de la casta.
+	/** Otorga el bonus de  destreza perteneciente a esta casta.
+	 * @return Retorna la destreza extra de la casta.
 	 */
 	@Override
 	public final int recibirDestrezaBonus() {
 		return BONUSDESTREZA;
 	}
-	/** Retorna un entero.
-	 * Que otorga el bonus de
-	 * fuerza perteneciente a esta casta.
+	/** Devuelve el bonus de fuerza perteneciente a esta casta.
 	 * @return Retorna 0 para esta casta.
 	 */
 	@Override
 	public final int recibirFuerzaBonus() {
 		return 0;
 	}
-	/** Retorna un entero.
-	 * Que otorga el bonus de
+	/** Otorga el bonus de
 	 * inteligencia perteneciente a esta casta.
 	 * @return Retorna 0 para esta casta.
 	 */

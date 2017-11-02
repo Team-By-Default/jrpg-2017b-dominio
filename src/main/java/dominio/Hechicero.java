@@ -1,24 +1,20 @@
 
 package dominio;
-/** La clase Hechicero es una casta de Personaje,
- * hereda de la clase Casta.
- * Posee dos constructores
- * El otro constructor, llama al constructor de
- * la clase padre (Casta),
- * pasándole los argumentos recibidos
- * por el constructor hijo.
+/** La clase Hechicero es una casta de Personaje.
+ * Hereda de la clase Casta.
+ * 
  * */
 public class Hechicero extends Casta {
 	/**
-	 * Energia minima para realizar una habilidad.
+	 * Energía mínima para realizar una habilidad.
 	 */
 	private static final int ENERGIAMINIMA = 10;
 	/**
-	 * Numero por el cual seran multiplicados los puntos de magia.
+	 * Número por el cual seran multiplicados los puntos de magia.
 	 */
 	private static final double MULTIPLICADORMAGIA = 1.5;
 	/**
-	 * Numero por el cual se dividiran los puntos de magia.
+	 * Número por el cual se dividiran los puntos de magia.
 	 */
 	private static final int DIVISORDEMAGIA = 2;
 	/**
@@ -26,19 +22,15 @@ public class Hechicero extends Casta {
 	 */
 	private static final int BONUSINTELIGENCIA = 5;
 
-	/** La clase Hechicero es una casta de Personaje,
-	 * hereda de la clase Casta.
-	 * Posee dos constructores
-	 * El otro constructor, llama al constructor de
-	 * la clase padre (Casta),
+	/** Llama al constructor de la clase padre (Casta),
 	 * pasándole los argumentos recibidos
 	 * por el constructor hijo.
 	 * @param probCrit Probabilidad de que el
-	 * personaje realice un golpe crítico
+	 * personaje realice un golpe crítico.
 	 * @param evasion Probabilidad de que el personaje
-	 * evite un golpe crítico
+	 * evite un golpe crítico.
 	 * @param danioCrit Valor por el cual será
-	 * multiplicado el golpe básico
+	 * multiplicado el golpe básico.
 	 */
 
 	public Hechicero(final double probCrit, final double evasion, final double danioCrit) {
@@ -46,8 +38,8 @@ public class Hechicero extends Casta {
 
 	}
 	/** El constructor por defecto, llama al constructor
-	 * por defecto de la clase
-	 * padre (Casta), inicializando probabilidadGolpeCritico,
+	 * por defecto de la clase padre (Casta), 
+	 * inicializando probabilidadGolpeCritico,
 	 * probabilidadEvitarDaño, dañoCritico,
 	 * con valores predeterminados.
 	 */
@@ -56,22 +48,19 @@ public class Hechicero extends Casta {
 	}
 
 
-	/** Retorna un booleano dependiendo de si se
-	 * realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque pueda
-	 * realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
+	/** Efectua de ser posible la habilidad 1 de la casta.
+	 * Para que la habilidad pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
 	 * descuentan seguido de comprobar que los posee,
-	 * de lo contrario
-	 * el ataque no será posible y se retornará false.
-	 * El parámetro caster a su vez llama al método
-	 * calcularPuntosDeMagia()
-	 * el cual luego se multiplica por 1.5
-	 * @param caster Personaje que realiza la habilidad
+	 * de lo contrario la habilidad no podra efectuarse.
+	 * La habilidad consiste en un ataque potenciado por
+	 * los puntos de magia del Hechicero.
+	 * @param caster Personaje que realiza la habilidad.
 	 * @param atacado puede ser una instancia de Persona
 	 *  o NPC dependiendo de la misma,
 	 * variará lo que retornará serAtacado()
-	 * @return booleano que determina si el ataque fue exitoso o no.
+	 * @return booleano que determina si el ataque 
+	 * pudo realizarse con exito o no.
 	 */
 	@Override
 	public final boolean habilidad1(final Personaje caster, final Peleable atacado) {
@@ -88,20 +77,22 @@ public class Hechicero extends Casta {
 	}
 
 
-	/** Retorna un booleano dependiendo de si se
-	 * realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque
-	 * pueda realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
-	 * descuentan seguido de comprobar que los posee, de lo contrario
-	 * el ataque no será posible y se retornará false.
-	 * Para que éste método tenga posibilidad de
-	 * retornar true, aliado debe ser de la instancia Personaje
-	 * @param caster Personaje que realiza la habilidad
+	/** Efectua de ser posible la habilidad 2 de la casta.
+	 * Para que la habilidad pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
+	 * descuentan seguido de comprobar que los posee,
+	 * de lo contrario la habilidad no podra efectuarse.
+	 * La habilidad consiste en curar al aliado con magia,
+	 * es decir, incrementar su atributo salud según los puntos
+	 * de magia del Personaje llamador.
+	 * Para poder realizar la habilidad, el Peleable aliado 
+	 * debe ser una instancia de la clase Personaje.
+	 * @param caster Personaje que realiza la habilidad.
 	 * @param aliado atacado puede ser una instancia de
-	 * Persona o NPC dependiendo de la misma podrá o no
-	 * retornar true el método.
-	 * @return booleano que determina si el ataque fue exitoso o no.
+	 * Persona o NPC dependiendo de la misma podrá realizarse
+	 * o no la habilidad.
+	 * @return booleano que determina si la habilidad se 
+	 * efectuo con éxito o no.
 	 */
 	@Override
 	public final boolean habilidad2(final Personaje caster, final Peleable aliado) {
@@ -115,19 +106,20 @@ public class Hechicero extends Casta {
 		return false;
 	}
 
-	/** Retorna un booleano dependiendo de si se
-	 * realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque
-	 * pueda realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
-	 * descuentan seguido de comprobar que los posee, de lo contrario
-	 * el ataque no será posible y se retornará false.
-	 * Para que éste método tenga posibilidad de retornar
-	 * true, el Atacado debe ser una instancia Personaje
-	 * @param caster Personaje que realiza la habilidad
+	/** Efectua de ser posible la habilidad 3 de la casta.
+	 * Para que la habilidad pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
+	 * descuentan seguido de comprobar que los posee,
+	 * de lo contrario la habilidad no podra efectuarse.
+	 * La habilidad consiste en decrementar el atributo salud
+	 * del oponente dependiendo de los puntos de magia propios
+	 * del llamador.
+	 * Para poder efectuar la habilidad, el Atacado debe 
+	 * ser una instancia de la clase Personaje.
+	 * @param caster Personaje que realiza la habilidad.
 	 * @param atacado El atacado puede ser una instancia
 	 * de Persona o NPC dependiendo de la misma podrá o no
-	 * retornar true el método.
+	 * efectuarse la habilidad.
 	 * @return retorna si se ejecutó correctamente la habilidad.
 	 */
 	@Override
@@ -147,8 +139,8 @@ public class Hechicero extends Casta {
 		}
 		return false;
 	}
-	/** Retorna un entero que otorga el bonus de
-	 * inteligencia perteneciente a esta casta.
+	/** Otorga el bonus de inteligencia 
+	 * perteneciente a esta casta.
 	 * @return Retorna la inteligencia extra de la casta.
 	 */
 	@Override

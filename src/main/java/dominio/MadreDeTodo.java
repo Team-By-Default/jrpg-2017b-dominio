@@ -3,26 +3,25 @@ package dominio;
 
 import java.util.ArrayList;
 
-/** Clase abstracta.
- * Que tiene como funcion tener los atributos que
- * comparten las clases NPC y Personaje
+/** Clase abstracta, cuyo objetivo es contener los atributos y métodos
+ *  que comparten las clases NPC y Personaje.
  */
 public abstract class MadreDeTodo {
 
 	/**
-	 * Fuerza que recibira el personaje o npc.
+	 * Fuerza que recibira el personaje o NPC.
 	 */
 	private int fuerza;
 	/**
-	 * Defensa que recibira el personaje o npc.
+	 * Defensa que recibira el personaje o NPC.
 	 */
 	protected int defensa;
 	/**
-	 * Nivel que recibira el personaje o npc.
+	 * Nivel que recibira el personaje o NPC.
 	 */
 	private int nivel;
 	/**
-	 * Nombre que recibira el personaje o npc.
+	 * Nombre que recibirá el personaje o NPC.
 	 */
 	private String nombre;
 	/**
@@ -32,19 +31,16 @@ public abstract class MadreDeTodo {
 
 	protected ArrayList<Item> items = new ArrayList<Item>();
 	/**
-	 * Posicion en X.
+	 * Posicion en X del personaje o NPC.
 	 */
 	private int x;
 	/**
-	 * Posicion en Y.
+	 * Posicion en Y del personaje o NPC.
 	 */
 	private int y;
 
 
-	/** Clase abstracta.
-	 * Que tiene como
-	 * funcion tener los atributos que
-	 * comparten las clases NPC y Personaje
+	/** Constructor
 	 * @param fuerza valor otorgado por
 	 * el constructor de NPC o Personaje.
 	 * @param defensa valor otorgado por
@@ -52,6 +48,10 @@ public abstract class MadreDeTodo {
 	 * @param nivel valor otorgado por
 	 * el constructor de NPC o Personaje.
 	 * @param nombre valor otorgado por
+	 * el constructor de NPC o Personaje.
+	 * @param x valor otorgado por
+	 * el constructor de NPC o Personaje.
+	 * @param y valor otorgado por
 	 * el constructor de NPC o Personaje.
 	 */
 	public MadreDeTodo(final int fuerza, final int defensa, final int nivel, final String nombre, int x,int y) {
@@ -63,116 +63,132 @@ public abstract class MadreDeTodo {
 		this.x = x;
 		this.y = y;
 	}
-	
+	/**Devuelve la posición en X del personaje o NPC.
+	 * @return posición actual del personaje o NPC en X. 
+	 */
 	public int getPosicionX(){
 		return this.x;
 	}
-	
+	/**Asigna una nueva posición en X al personaje o NPC.
+	 * @param x nueva posición del personaje o NPC en X. 
+	 */
 	public void setPosicionX(int x){
 		this.x=x;
 	}
-	
+	/**Devuelve la posición en Y del personaje o NPC.
+	 * @return posición actual del personaje o NPC en Y. 
+	 */
 	public int getPosicionY(){
 		return this.y;
 	}
-	
+	/**Asigna una nueva posición en Y al personaje o NPC.
+	 * @param x nueva posición del personaje o NPC en Y. 
+	 */
 	public void setPosicionY(int y){
 		this.y=y;
 	}
 
-	/** Método que devuelve la fuerza del personaje o NPC.
+	/** Devuelve la fuerza del personaje o NPC.
 	 * @return fuerza del personaje o NPC.
 	 */
 	public final int getFuerza() {
 		return fuerza;
 	}
 
-	/** Método que devuelve la defensa del personaje o NPC.
+	/** Devuelve la defensa del personaje o NPC.
 	 * @return defensa del personaje o NPC.
 	 */
 	public final int getDefensa() {
 		return defensa;
 	}
 
-	/** Método que devuelve el nivel del personaje o NPC.
+	/** Devuelve el nivel del personaje o NPC.
 	 * @return nivel del personaje o NPC.
 	 */
 	public final int getNivel() {
 		return nivel;
 	}
 
-	/** Método que devuelve el nombre del personaje o NPC.
+	/** Devuelve el nombre del personaje o NPC.
 	 * @return nombre del personaje o NPC.
 	 */
 	public final String getNombre() {
 		return nombre;
 	}
-	/** Método void que sobreescribe el atributo nombre.
-	 * Con el valor que se ingresa por parámetro.
-	 * @param nombre valor a sobreescribir
+	/** Remplaza el atributo nombre por 
+	 *  el string ingresado por parámetro.
+	 * @param nuevo nombre del personaje o NPC.
 	 */
 	public final void setNombre(final String nombre) {
 		this.nombre = nombre;
 	}
-	/** Método void que aumenta la fuerza del personaje o NPC.
-	 * Con el valor que se ingresa por parámetro.
-	 * @param aumento fuerza a aumentar.
+	/** Aumenta la fuerza del personaje o NPC, 
+	 * con el valor que se ingresa por parámetro.
+	 * @param aumento incremento que se le aplicara a la fuerza.
 	 */
 	public final void aumentarFuerza(final int aumento) {
 		fuerza += aumento;
 	}
-	/** Método void que aumenta el nivel del personaje o NPC.
+	/**
+	 * Remplaza la fuerza del personaje o NPC con el valor
+	 * que se recibe por parámetro.
+	 * @param fuerza valor por el que se remplazara la fuerza anterior.
+	 */
+	public final void setFuerza(final int fuerza){
+		this.fuerza = fuerza;
+	}
+	/** Incrementa en uno el nivel del personaje o NPC.
 	 */
 	public final void aumentarNivel() {
 		nivel++;
 	}
 
 	/**
-	 * Getter del Randomizador.
-	 * @return Retorna el randomizador.
+	 * Devuelve el atributo random del personaje o NPC.
+	 * @return Retorna el objeto generador de números aleatorios.
 	 */
 	public final RandomGenerator getRandom() {
 		return random;
 	}
 
 	/**
-	 * Setter del Randomizador.
-	 * @param random Randomizador que reemplazará al actual.
+	 * Sobreescribe el atributo random.
+	 * @param random objeto generador de números aleatorios que reemplazará al actual.
 	 */
 	public final void setRandom(final RandomGenerator random) {
 		this.random = random;
 	}
 	/**
-	 * Aumenta la defensa del personaje / npc.
+	 * Aumenta la defensa del personaje o NPC.
 	 * @param bonus valor que se le agrega a la defensa.
 	 */
 	public final void aumentarDefensa(final int bonus) {
 		defensa += bonus;
 	}
 	/**
-	 * Reduce la defensa del personaje.
-	 * @param reduc Valor que se reduce la defensa.
+	 * Reduce la defensa del personaje o NPC.
+	 * @param reduc Valor que se le reduce a la defensa.
 	 */
 	public final void reducirDefensa(final int reduc) {
 		defensa -= reduc;
 	}
 	/**
-	 * Metodo para anadir items sin violar el encapsulamiento.
+	 * Añade items al ArrayList de items del personaje o NPC.
 	 * @param i Item a agregar.
 	 */
 	public final void anadirItem(final Item i) {
 		items.add(i);
 	}
 	/**
-	 * Metodo para remover items sin violar el encapsulamiento.
+	 * Remueve items del ArrayList de items del personaje o NPC.
 	 * @param i Item a eliminar.
 	 */
 	public final void removerItem(final Item i) {
 		items.remove(i);
 	}
 	/**
-	 * Método para obtener la lista de items.
-	 * @return Lista de items del personaje.
+	 * Devuelve la lista de items.
+	 * @return Lista de items del personaje o NPC.
 	 */
 	public ArrayList<Item> getItems() {
 		return items;

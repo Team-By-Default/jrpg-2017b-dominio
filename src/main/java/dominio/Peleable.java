@@ -1,77 +1,87 @@
 
 package dominio;
 
-/** Interface implementada en las clases Personaje
- * y NPC.
- * Dependiendo qué clase las esté implementando
- * será como responderán
+/** Interfaz implementada en las clases Personaje
+ * y NonPlayableCharacter.
+ * Contiene los métodos utilizados durante un combate.
+ * Cada método se implementa de forma diferente en cada clase.
  */
 public interface Peleable {
 	/**
-	 * Metodo implementado en Personaje
+	 * Método implementado en Personaje
 	 * y en NonPlayableCharacter.
+	 * 
+	 * el método determinara a traves de la defensa del llamador y el daño que ejerce 
+	 * el oponente, cual sera el daño real ejercido sobre el llamador, 
+	 * el cual se resta a la salud del mismo.
 	 *
-	 * @param daño Valor el cual se descontará de la defensa.
+	 * @param daño Valor que representa el daño que ejerce el atacante.
 	 * @return Retorna un entero con el daño causado al llamador.
 	 */
 	int serAtacado(int daño);
 
 	/**
-	 * Metodo implementado en Personaje
+	 * Método implementado en Personaje
 	 * y NonPlayableCharacter.
 	 *
-	 * @return Retornara un entero con la salud del llamador.
+	 *Retorna un entero que representa los puntos de salud del Peleable llamador.
+	 * @return Devuelve la cantidad de vida actual del llamador.
 	 */
 	int getSalud();
 	/**
-	 * Metodo implementado en Personaje
+	 * Método implementado en Personaje
 	 * y NonPlayableCharacter.
+	 *
+	 * @return Retornara un entero con la magia del llamador.
+	 */
+	int getMagia();
+	/*/**
+	 * Método implementado en Personaje.
 	 *
 	 * @return Retornara un entero con la energia del llamador.
 	 */
-	int getMagia();
+	//int getEnergia();
+
 	/**
-	 * Metodo void implementado en Personaje
+	 * Método void implementado en Personaje
 	 * y NonPlayableCharacter.
+	 * Hasta el momento no se usa.
 	 */
 	void despuesDeTurno();
 	/**
-	 * Metodo implementado en Personaje
+	 * Método implementado en Personaje
 	 * y NonPlayableCharacter.
-	 * @param atacado Personaje al cual el llamador atacara.
-	 * @return Retorna el daño causado del atacante al atacado.
+	 * @param atacado Peleable al cual el llamador atacara.
+	 * @return Retorna el daño efectivo causado por el atacante al atacado.
 	 */
 	int atacar(Peleable atacado);
 	/**
-	 * Metodo implementado en Personaje
+	 * Método implementado en Personaje
 	 * y NonPlayableCharacter.
 	 * @return Retorna el nivel del llamador multiplicado por la
 	 * constante MULTIPLICADOREXP.
 	 */
 	int otorgarExp();
 	/**
-	 * Metodo implementado en Personaje
+	 * Método implementado en Personaje
 	 * y NonPlayableCharacter.
 	 * @return Retorna un entero con el ataque del llamador.
 	 */
 	int getAtaque();
 	/**
-	 * Metodo implementado en Personaje
+	 * Método implementado en Personaje
 	 * y NonPlayableCharacter.
 	 * @param ataque Entero que será el nuevo ataque del llamador.
 	 */
 	void setAtaque(int ataque);
 	/**
-	 * Metodo implementado en Personaje
+	 * Método implementado en Personaje
 	 * y NonPlayableCharacter.
 	 *
-	 * @return Retorna un boolean si esta vivo o no el llamador.
+	 * Retorna un booleano.
+	 * Que indica si el Peleable esta vivo o no.
+	 * @return true si el NPC está vivo, false para lo contrario.
 	 */
 	boolean estaVivo();
-	/**
-	 * Método.
-	 * @return retorna el nombre del Personaje o NPC.
-	 */
-	String getNombre();
 }
 

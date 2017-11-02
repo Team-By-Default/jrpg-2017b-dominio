@@ -6,7 +6,7 @@ package dominio;
 */
 public class Orco extends Personaje {
 	/**
-	 * Energia minima que se necesita para realizar una habilidad.
+	 * Energía mínima que se necesita para realizar una habilidad.
 	 */
 	private static final int ENERGIAMINIMA = 10;
 	/**
@@ -14,34 +14,32 @@ public class Orco extends Personaje {
 	 */
 	private static final int BONUSSALUD = 10;
 	/**
-	 * Numero por el cual se multiplicara la defensa.
+	 * Número por el cual se multiplicara la defensa.
 	 */
 	private static final int MULTIPLICADORDEFENSA = 2;
 
-	/**La clase Orco hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban declarados en
-	 * la clase Personaje, como por ejemplo habilidadesRaza[]
-	 * @param nombre Indica el nombre el personaje
-	 * @param casta Indica la casta(Raza) del personaje
-	 * @param id Identificador del personaje
+	/**Llama al constructor del padre (Personaje)
+	 * pasándole los argumentos recibidos.
+	 * @param nombre Indica el nombre del Personaje.
+	 * @param casta Indica la casta(Raza) del Personaje.
+	 * @param id Identificador del Personaje.
 	 */
 	public Orco(final String nombre, final Casta casta, final int id) {
 		super(nombre, casta, id);
 	}
-	/**La clase Orco hereda de la clase Personaje.
-	 * Completa ciertos atributos que estaban declarados en
-	 * la clase Personaje, como por ejemplo habilidadesRaza[]
-	 * Recibe la mayoría de los atributos
-	 * @param nombre Nombre del personaje
-	 * @param salud Salud del personaje
-	 * @param energia Energia del personaje
-	 * @param fuerza Fuerza del Personaje
-	 * @param destreza Destreza del personaje
-	 * @param inteligencia Inteligencia del personaje
-	 * @param casta Casta(Raza) del personaje
-	 * @param experiencia Experiencia del personaje
-	 * @param nivel Nivel del personaje
-	 * @param idPersonaje Id del personaje
+	/**Recibe la mayoría de los atributos.
+	 * Llama al constructor del padre (Personaje)
+	 * pasándole los argumentos recibidos.
+	 * @param nombre Nombre del personaje.
+	 * @param salud Salud del personaje.
+	 * @param energia Energía del personaje.
+	 * @param fuerza Fuerza del Personaje.
+	 * @param destreza Destreza del personaje.
+	 * @param inteligencia Inteligencia del personaje.
+	 * @param casta Casta(Raza) del personaje.
+	 * @param experiencia Experiencia del personaje.
+	 * @param nivel Nivel del personaje.
+	 * @param idPersonaje Identificador del personaje.
 	 */
 	public Orco(final String nombre, final int salud, final int energia, final int fuerza,
 			final int destreza, final int inteligencia, final Casta casta,
@@ -50,19 +48,16 @@ public class Orco extends Personaje {
 	}
 
 
-	/**Retorna un booleano dependiendo de si se
-	 * realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque
-	 * pueda realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
+	/**Efectua de ser posible la habilidad 1 de la Raza.
+	 * Para que la habilidad pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
 	 * descuentan seguido de comprobar que los posee,
-	 * de lo contrario el ataque no será posible
-	 * y se retornará false
-	 * El método serAtacado() tiene como argumento
-	 * el doble del valor del atributo defensa del llamador
+	 * de lo contrario la habilidad no podra efectuarse.
+	 * La habilidad consiste en que al ser atacado recibe el ataque con
+	 * el doble del valor del atributo defensa del llamador.
 	 * @param atacado Instancia de Personaje o de NPC,
 	 * dependiendo de cual sea, será como responda el
-	 * método serAtacado()
+	 * método serAtacado().
 	 * @return Retorna si el ataque fue exitoso o no.
 	 */
 	@Override
@@ -80,20 +75,16 @@ public class Orco extends Personaje {
 	}
 
 
-	/**Retorna un booleano dependiendo de si se
-	 * realizó exitosamente o no el ataque.
-	 * La primera condición para que el ataque
-	 * pueda realizarse es que el atacante(caster) posea 10 o
-	 * más del atributo energia ya que estos se
+	/**Efectua de ser posible la habilidad 2 de la Raza.
+	 * Para que la habilidad pueda realizarse, el atacante(caster)
+	 * debe tener puntos de energía suficiente, ya que estos se
 	 * descuentan seguido de comprobar que los posee,
-	 * de lo contrario el ataque no será posible
-	 * y se retornará false
-	 * El método serAtacado() tiene como argumento
-	 * el valor del atributo fuerza del llamador
-	 * luego el llamador se cura con el daño causado al atacado
+	 * de lo contrario la habilidad no podra efectuarse.
+	 * La habilidad consiste en que luego de atacar 
+	 * el llamador se cura con el daño causado al atacado.
 	 * @param atacado Instancia de Personaje o de NPC,
 	 * dependiendo de cual sea, será como responda el
-	 * método serAtacado()
+	 * método serAtacado().
 	 * @return Retorna si el ataque fue exitoso o no.
 	 */
 	@Override
@@ -126,7 +117,7 @@ public class Orco extends Personaje {
 		return BONUSSALUD;
 	}
 	/**Retorna un entero con el bonificador de
-	 * energia de la raza.
+	 * energía de la raza.
 	 * @return Retorna 0 para esta raza.
 	 */
 	@Override
