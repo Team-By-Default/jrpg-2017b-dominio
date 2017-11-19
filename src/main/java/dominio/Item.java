@@ -10,16 +10,16 @@ import javax.imageio.ImageIO;
  * Clase que representa los Items que posee el personaje.
  */
 public class Item implements Serializable {
-	private final int idItem;
-	private final String foto;
-	private final String nombre;
-	private final int wearLocation;
-	private final int bonusSalud;
-	private final int bonusEnergia;
-	private final int bonusFuerza;
-	private final int bonusDestreza;
-	private final int bonusInteligencia;
-	private final String fotoEquipado;
+	private int idItem;
+	private String foto;
+	private String nombre;
+	private int wearLocation;
+	private int bonusSalud;
+	private int bonusEnergia;
+	private int bonusFuerza;
+	private int bonusDestreza;
+	private int bonusInteligencia;
+	private String fotoEquipado;
 	/**
 	 * Constructor del Item.
 	 * @param idItem Entero que representa el id del item.
@@ -35,9 +35,9 @@ public class Item implements Serializable {
 	 * cuando el item está equipado.
 	 * @throws IOException Cuando no se encuentra la foto del item.
 	 */
-	public Item(final int idItem, final String nombre, final int wearLocation,
-			final int bonusSalud, final int bonusEnergia, final int bonusFuerza, final int bonusDestreza,
-			final int bonusInteligencia, final String foto, final String fotoEquipado) throws IOException {
+	public Item(int idItem, String nombre, int wearLocation,
+			int bonusSalud, int bonusEnergia, int bonusFuerza, int bonusDestreza,
+			int bonusInteligencia, String foto, String fotoEquipado) throws IOException {
 		this.foto = foto;
 		this.idItem = idItem;
 		this.nombre = nombre;
@@ -107,10 +107,52 @@ public class Item implements Serializable {
 	public int getIdItem() {
 		return idItem;
 	}
+	
+	public int getWearLocation() {
+		return wearLocation;
+	}
 
+	public void setWearLocation(int wearLocation) {
+		this.wearLocation = wearLocation;
+	}
 
+	public String getFotoEquipado() {
+		return fotoEquipado;
+	}
 
+	public void setFotoEquipado(String fotoEquipado) {
+		this.fotoEquipado = fotoEquipado;
+	}
 
+	public void setIdItem(int idItem) {
+		this.idItem = idItem;
+	}
 
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setBonusSalud(int bonusSalud) {
+		this.bonusSalud = bonusSalud;
+	}
+
+	public void setBonusEnergia(int bonusEnergia) {
+		this.bonusEnergia = bonusEnergia;
+	}
+
+	public void setBonusFuerza(int bonusFuerza) {
+		this.bonusFuerza = bonusFuerza;
+	}
+
+	public void setBonusDestreza(int bonusDestreza) {
+		this.bonusDestreza = bonusDestreza;
+	}
+
+	public void setBonusInteligencia(int bonusInteligencia) {
+		this.bonusInteligencia = bonusInteligencia;
+	}
 }
