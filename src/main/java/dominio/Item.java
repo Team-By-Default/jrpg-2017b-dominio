@@ -53,6 +53,9 @@ public class Item implements Serializable {
 		this.fotoEquipado = fotoEquipado;
 	}
 
+	public Item() {
+	}
+	
 	/**
 	 * Retorna la foto del item.
 	 * @return Retorna la foto del item.
