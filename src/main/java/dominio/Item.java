@@ -20,6 +20,9 @@ public class Item implements Serializable {
 	private int bonusDestreza;
 	private int bonusInteligencia;
 	private String fotoEquipado;
+	private int fuerzaRequerida;
+	private int destrezaRequerida;
+	private int inteligenciarequerida;
 	/**
 	 * Constructor del Item.
 	 * @param idItem Entero que representa el id del item.
@@ -55,9 +58,18 @@ public class Item implements Serializable {
 	 * @return Retorna la foto del item.
 	 * @throws IOException Cuando no se encuentra la foto del item.
 	 */
-	public BufferedImage getFoto() throws IOException {
+	public BufferedImage getFotoBI() throws IOException {
 		return ImageIO.read(new File("recursos//" + foto));
 	}
+	
+	/**
+	 * Retorna el nombre de la foto del item.
+	 * @return String de la foto del item.
+	 */
+	public String getFoto(){
+		return this.foto;
+	}
+	
 	/**
 	 * Retorna el nombre del item.
 	 * @return Retorna el nombre del item.
@@ -108,9 +120,95 @@ public class Item implements Serializable {
 		return idItem;
 	}
 
+	//hasta aca lo viejo
+	//Que lo documente magolla(mentira despues lo hago)
+	
+	/**
+	 * Permite devolver el atributo wearLocation (uso meramente para la bd,plan: quitarlo)
+	 * @return int
+	 */
+	public int getWearLocation() {
+		return wearLocation;
+	}
 
+	/**
+	 * Permite setear el atributo wearLocation (uso meramente para la bd,plan: quitarlo)
+	 * @param wearLocation pasado
+	 */
+	public void setWearLocation(int wearLocation) {
+		this.wearLocation = wearLocation;
+	}
 
+	/**
+	 * Permite devolver este atributo que es una copia de foto
+	 * @return int
+	 */
+	public String getFotoEquipado() {
+		return fotoEquipado;
+	}
 
+	/**
+	 * 
+	 * @param fotoEquipado
+	 */
+	public void setFotoEquipado(String fotoEquipado) {
+		this.fotoEquipado = fotoEquipado;
+	}
 
+	public int getFuerzaRequerida() {
+		return fuerzaRequerida;
+	}
+
+	public void setFuerzaRequerida(int fuerzaRequerida) {
+		this.fuerzaRequerida = fuerzaRequerida;
+	}
+
+	public int getDestrezaRequerida() {
+		return destrezaRequerida;
+	}
+
+	public void setDestrezaRequerida(int destrezaRequerida) {
+		this.destrezaRequerida = destrezaRequerida;
+	}
+
+	public int getInteligenciarequerida() {
+		return inteligenciarequerida;
+	}
+
+	public void setInteligenciarequerida(int inteligenciarequerida) {
+		this.inteligenciarequerida = inteligenciarequerida;
+	}
+
+	public void setIdItem(int idItem) {
+		this.idItem = idItem;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setBonusSalud(int bonusSalud) {
+		this.bonusSalud = bonusSalud;
+	}
+
+	public void setBonusEnergia(int bonusEnergia) {
+		this.bonusEnergia = bonusEnergia;
+	}
+
+	public void setBonusFuerza(int bonusFuerza) {
+		this.bonusFuerza = bonusFuerza;
+	}
+
+	public void setBonusDestreza(int bonusDestreza) {
+		this.bonusDestreza = bonusDestreza;
+	}
+
+	public void setBonusInteligencia(int bonusInteligencia) {
+		this.bonusInteligencia = bonusInteligencia;
+	}
 
 }
