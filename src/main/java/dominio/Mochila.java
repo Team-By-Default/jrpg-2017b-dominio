@@ -7,11 +7,14 @@ import java.io.PrintWriter;
 
 public class Mochila {
 	
+	private static final int CANTITEMS = 20;
 	private int mochila;
 	private int[] items;
 	
 	public Mochila() {
-		items=new int[20];
+		items=new int[CANTITEMS];
+		for(int i = 0; i < CANTITEMS; i++)
+			items[i] = -1;
 	}
 
 	public int getMochila() {
