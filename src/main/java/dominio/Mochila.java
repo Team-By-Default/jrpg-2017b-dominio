@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class Mochila {
 	
@@ -17,6 +18,62 @@ public class Mochila {
 			items[i] = -1;
 	}
 
+	/**
+	 * Agrega un item en la posicion indicada
+	 * @param idItem
+	 * @param indice: del vector, posicion donde agregar
+	 */
+	public void anadirItem(int idItem, int indice) {
+		if(indice < 20)
+			this.items[indice] = idItem;
+	}
+	
+	/**
+	 * Remueve un item con el id indicado
+	 * @param idItem
+	 */
+	public void removerItem(int idItem) {
+		boolean removio = false;
+		int i=0;
+		while(!removio && i<this.items.length) {
+			if(this.items[i] == idItem) {
+				this.items[i] = -1;
+				removio = true;
+			}
+			i++;
+		}
+	}
+	
+	/**
+	 * Setea todos los items a partir de un array de Items
+	 * @param arrayItems
+	 */
+	public void setItems(ArrayList<Item> arrayItems) {
+		for(int i=0; i<CANTITEMS; i++) {
+			if(i < arrayItems.size())
+				this.items[i] = arrayItems.get(i).getIdItem();
+			else
+				this.items[i] = -1;
+		}
+	}
+	
+	/**
+	 * Saca todos los items
+	 */
+	public void removerTodos() {
+		for(int i=0; i<this.items.length; i++)
+			this.items[i]=-1;
+	}
+	
+	/**
+	 * Devuelve el item en cierto indice
+	 * @param indice
+	 * @return
+	 */
+	public int getItem(int indice) {
+		return this.items[indice];
+	}
+	
 	public int getMochila() {
 		return mochila;
 	}
