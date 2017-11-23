@@ -183,10 +183,22 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * Nombre de la casta del personaje.
 	 */
 	private String nombreCasta;
-
+	
+	/**
+	 * Multiplicador para daddys
+	 */
+	private double multiDaddy = 1;
+	
+	/**
+	 * Dice si esta en modo dios o no, activado por el
+	 * truco godMode.
+	 */
+	private boolean god = false;
 	
 	
-	/** La clase Personaje es la cual posee todos los atributos.
+	/**
+	 * Crea un personaje con valores por defecto, minimos. 
+	 * La clase Personaje es la cual posee todos los atributos.
 	 * Algunos serán completados por las clases hijo (Elfo,Humano,Orco)
 	 * como por ejemplo el array habilidadesRaza[].
 	 * Dependiendo de qué instancia es el parámetro casta,
@@ -223,12 +235,10 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		this.aumentarDefensa(destreza);
 	}
 	
-	/** La clase Personaje es la cual posee todos los atributos.
-	 * De los personajes del juego.
-	 * Algunos serán completados por las clases hijo
-	 * (Elfo,Humano,Orco) como por ejemplo:
-	 * El array habilidadesRaza[], a diferencia del constructor
-	 * de sólo 3 parámetros,
+	/** La clase Personaje es la cual posee todos los atributos de los personajes del juego.
+	 * Setea todos los parametros.
+	 * Algunos serán completados por las clases hijo (Elfo,Humano,Orco) como por ejemplo:
+	 * El array habilidadesRaza[], a diferencia del constructor de sólo 3 parámetros,
 	 * éste recibe la mayoría de los atributos.
 	 * @param nombre Nombre del personaje
 	 * @param salud Salud del personaje
@@ -264,9 +274,8 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 
 		this.ataque = this.calcularPuntosDeAtaque();
 		this.magia = this.calcularPuntosDeMagia();
+		
 	}
-
-
 
 	/**
 	 * Retorna las habilidades que posee el personaje 
@@ -297,11 +306,12 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	public final int getAtaque() {
 		return ataque;
 	}
-	/**Sobreescribe el atributo de ataque
+	
+	/**Obsoleto?
+	 * Sobreescribe el atributo de ataque
 	 * con el parámetro enviado.
 	 * @param ataque nuevo valor del ataque del personaje.
 	 */
-
 	@Override
 	public final void setAtaque(final int ataque) {
 		this.ataque = ataque;
@@ -463,15 +473,15 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		return energia > ENERGIAMINIMA;
 	}
 
-	/** Retorna un entero que representa los puntos de
-	 * ataque efectivos del personaje para un combate. 
-	 * Estos puntos dependen de la
-	 * fuerza del personaje y MULTIPLICADORFZA.
+	/** Retorna un entero que representa los puntos de ataque efectivos del personaje para un combate. 
+	 * Estos puntos dependen de la fuerza del personaje, MULTIPLICADORFZA y el multiplicador afectado
+	 * por bigdaddy y tinydaddy.
 	 * @return Los puntos de ataque del personaje.
 	 */
 	public final int calcularPuntosDeAtaque() {
-		return (int) (this.getFuerza() * MULTIPLICADORFZA);
+		return (int) (this.getFuerza() * this.multiDaddy * MULTIPLICADORFZA);
 	}
+	
 	/**Retorna un entero con los puntos de defensa.
 	 * Estos puntos son iguales a los puntos de destreza
 	 * del personaje.
@@ -966,6 +976,22 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 			aux.add(item);
 		}
 		this.items = aux;
+	}
+
+	
+	/**
+	 * @return the multiDaddy
+	 */
+	public double getMultiDaddy() {
+		return multiDaddy;
+	}
+
+	
+	/**
+	 * @param multiDaddy the multiDaddy to set
+	 */
+	public void setMultiDaddy(double multiDaddy) {
+		this.multiDaddy = multiDaddy;
 	}
 
 }
