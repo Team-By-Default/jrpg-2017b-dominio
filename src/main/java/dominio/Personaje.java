@@ -983,7 +983,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * @return the multiDaddy
 	 */
 	public double getMultiDaddy() {
-		return multiDaddy;
+		return this.multiDaddy;
 	}
 
 	
@@ -992,6 +992,22 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	public void setMultiDaddy(double multiDaddy) {
 		this.multiDaddy = multiDaddy;
+	}
+
+	
+	/**
+	 * @return God or Not
+	 */
+	public boolean isGod() {
+		return this.god;
+	}
+
+	
+	/**
+	 * @param god the god to set
+	 */
+	public void setGod(boolean god) {
+		this.god = god;
 	}
 
 }
