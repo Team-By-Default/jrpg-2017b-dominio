@@ -187,9 +187,9 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	@Override
 	public final int atacar(final Peleable atacado) {
 		if (this.getRandom().nextDouble() <= NUMEROPARAATACAR) {
-			return atacado.serAtacado((int) (this.getAtaque() * MULTIPLICADORFUERZA));
+			return atacado.serAtacado((int) (this.getAtaque() * MULTIPLICADORFUERZA), this);
 		} else {
-			return atacado.serAtacado(this.getAtaque());
+			return atacado.serAtacado(this.getAtaque(), this);
 		}
 	}
 
@@ -200,7 +200,7 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 * @return Retorna 0 si el ataque no fue realizado con exito.
 	 */
 	@Override
-	public final int serAtacado(int danio) {
+	public final int serAtacado(int danio, Peleable atacante) {
 		if (this.getRandom().nextDouble() >= NUMEROPARASERATACADO) {
 			danio -= this.getDefensa() / DIVISORDEDEFENSA;
 			if (danio > 0) {
@@ -250,5 +250,12 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	@Override
 	public final int getMagia() {
 		return 0;
+	}
+	/**
+	 * Los NPCs nunca seran dioses...
+	 */
+	@Override
+	public boolean isDios() {
+		return false;
 	}
 }

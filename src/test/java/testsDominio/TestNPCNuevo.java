@@ -18,12 +18,6 @@ public class TestNPCNuevo {
 		Assert.assertEquals(20, npc.getFuerza());
 		Assert.assertEquals(60, npc.getSalud());
 	}
-
-	@Test
-	public void testDañoMenorADef() {
-		NonPlayableCharacter npc = new NonPlayableCharacter("Pepe", 1, 1);
-		Assert.assertEquals(0, npc.serAtacado(1));
-	}
 	
 	@Test
 	public void testGetFuerza() {

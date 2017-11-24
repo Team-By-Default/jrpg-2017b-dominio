@@ -99,7 +99,7 @@ public class Humano extends Personaje {
 	@Override
 	public final boolean habilidadRaza2(final Peleable atacado) {
 		if (this.getEnergia() >= ENERGIAMINIMA) {
-			if (atacado.serAtacado(atacado.getSalud() / DIVISORSALUD) > 0) {
+			if (atacado.serAtacado(atacado.getSalud() / DIVISORSALUD, this) > 0) {
 				this.reducirEnergia(this.getEnergia() / DIVISORENERGIA);
 				return true;
 			}

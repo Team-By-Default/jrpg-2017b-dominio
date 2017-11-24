@@ -433,13 +433,13 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		if (salud == 0) {
 			return 0;
 		}
-		if (atacado.getSalud() > 0) {
+		if (atacado.getSalud() > 0 && (this.god || !atacado.isDios())) {
 
 			if (this.getRandom().nextDouble() <= this.casta.getProbabilidadGolpeCritico()
 					+ this.destreza / DIVISORDEDESTREZA) {
-				return atacado.serAtacado(this.golpe_critico());
+				return atacado.serAtacado(this.golpe_critico(), this);
 			} else {
-				return atacado.serAtacado(this.ataque);
+				return atacado.serAtacado(this.ataque, this);
 			}
 		}
 		return 0;
@@ -556,21 +556,25 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * si el ataque fue realizado con éxito o no.
 	 */
 	@Override
-	public final int serAtacado(int danio) {
-
-		if (this.getRandom().nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
-			danio -= this.getDefensa();
-			if (danio > 0) {
-				if (salud <= danio) {
-					danio = salud;
-					salud = 0;
-				} else {
-					salud -= danio;
+	public final int serAtacado(int danio, Peleable atacante) {
+		System.out.println("Yo soy dios " + this.god + " y el otro es dios " + atacante.isDios());
+		if(!this.god || atacante.isDios()) {
+			System.out.println("Me quiere atacar");
+			if (this.getRandom().nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
+				danio -= this.getDefensa();
+				if (danio > 0) {
+					if (salud <= danio) {
+						danio = salud;
+						salud = 0;
+					} else {
+						salud -= danio;
+					}
+					return danio;
 				}
-				return danio;
+				return 0;
 			}
-			return 0;
 		}
+		else System.out.println("Soy un " + this.nombreRaza + " y un dios " + atacante.isDios() + " y safe");
 		return 0;
 	}
 
@@ -998,7 +1002,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	/**
 	 * @return God or Not
 	 */
-	public boolean isGod() {
+	public boolean isDios() {
 		return this.god;
 	}
 

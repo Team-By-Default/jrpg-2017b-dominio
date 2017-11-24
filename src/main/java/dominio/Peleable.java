@@ -18,7 +18,7 @@ public interface Peleable {
 	 * @param daño Valor que representa el daño que ejerce el atacante.
 	 * @return Retorna un entero con el daño causado al llamador.
 	 */
-	int serAtacado(int daño);
+	int serAtacado(int daño, Peleable atacante);
 
 	/**
 	 * Método implementado en Personaje
@@ -35,12 +35,6 @@ public interface Peleable {
 	 * @return Retornara un entero con la magia del llamador.
 	 */
 	int getMagia();
-	/*/**
-	 * Método implementado en Personaje.
-	 *
-	 * @return Retornara un entero con la energia del llamador.
-	 */
-	//int getEnergia();
 
 	/**
 	 * Método void implementado en Personaje
@@ -83,5 +77,10 @@ public interface Peleable {
 	 * @return true si el NPC está vivo, false para lo contrario.
 	 */
 	boolean estaVivo();
+	/**
+	 * Dice si es dios o no
+	 * @return
+	 */
+	boolean isDios();
 }
 
