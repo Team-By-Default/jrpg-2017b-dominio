@@ -530,9 +530,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	@Override
 	public final int serAtacado(int danio, Peleable atacante) {
-		System.out.println("Yo soy dios " + this.god + " y el otro es dios " + atacante.isDios());
 		if(!this.god || atacante.isDios()) {
-			System.out.println("Me quiere atacar");
 			if (this.getRandom().nextDouble() >= this.getCasta().getProbabilidadEvitarDaño()) {
 				danio -= this.getDefensa();
 				if (danio > 0) {
@@ -547,7 +545,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 				return 0;
 			}
 		}
-		else System.out.println("Soy un " + this.nombreRaza + " y un dios " + atacante.isDios() + " y safe");
 		return 0;
 	}
 
