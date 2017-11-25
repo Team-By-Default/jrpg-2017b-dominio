@@ -58,11 +58,6 @@ public class Guerrero extends Casta {
 		if (caster.getEnergia() >= ENERGIAMINIMA) {
 			caster.reducirEnergia(ENERGIAMINIMA);
 			return atacado.serAtacado(caster.getAtaque() * MULTIPLICADORFUERZA, caster) > 0;
-			/*
-			if (atacado.serAtacado(caster.getAtaque() * MULTIPLICADORFUERZA) > 0) {
-				return true;
-			}
-			*/
 		}
 		return false;
 	}

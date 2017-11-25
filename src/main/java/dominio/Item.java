@@ -123,9 +123,6 @@ public class Item implements Serializable {
 		return idItem;
 	}
 
-	//hasta aca lo viejo
-	//Que lo documente magolla(mentira despues lo hago)
-	
 	/**
 	 * Permite devolver el atributo wearLocation (uso meramente para la bd,plan: quitarlo)
 	 * @return int
@@ -151,65 +148,117 @@ public class Item implements Serializable {
 	}
 
 	/**
-	 * 
+	 * Permite que hibernate setee la fotoEquipado
 	 * @param fotoEquipado
 	 */
 	public void setFotoEquipado(String fotoEquipado) {
 		this.fotoEquipado = fotoEquipado;
 	}
 
+	/**
+	 * Permite leer el atributo fuerzaRequerida (no usado, solo para hibernate)
+	 * @return  int fuerzaRequerida
+	 */
 	public int getFuerzaRequerida() {
 		return fuerzaRequerida;
 	}
 
+	/**
+	 * Permite que hibernate setee la fuerzaRequerida
+	 * @param fuerzaRequerida
+	 */
 	public void setFuerzaRequerida(int fuerzaRequerida) {
 		this.fuerzaRequerida = fuerzaRequerida;
 	}
-
+	/**
+	 * Permite leer el atributo destrezaRequerida (no usado, solo para hibernate)
+	 * @return  int destrezaRequerida
+	 */
 	public int getDestrezaRequerida() {
 		return destrezaRequerida;
 	}
-
+	/**
+	 * Permite que hibernate setee la destrezaRequerida
+	 * @param desrezaRequerida
+	 */
 	public void setDestrezaRequerida(int destrezaRequerida) {
 		this.destrezaRequerida = destrezaRequerida;
 	}
-
+	/**
+	 * Permite leer el atributo inteligenciarequerida (no usado, solo para hibernate)
+	 * @return  int inteligenciarequerida
+	 */
 	public int getInteligenciarequerida() {
 		return inteligenciarequerida;
 	}
-
+	/**
+	 * Permite que hibernate setee la inteligenciarequerida
+	 * @param inteligenciarequerida
+	 */
 	public void setInteligenciarequerida(int inteligenciarequerida) {
 		this.inteligenciarequerida = inteligenciarequerida;
 	}
-
+	
+	/**
+	 * Hibernate. Setea el id del item
+	 * @param idItem
+	 */
 	public void setIdItem(int idItem) {
 		this.idItem = idItem;
 	}
 
+	/**
+	 * Hibernate. Setea la string de la foto
+	 * @param foto
+	 */
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 
+	/**
+	 * Hibernate. Setea el string del nombre
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+	/**
+	 * Hibernate. Setea el bonus de salud
+	 * @param bonusSalud
+	 */
 	public void setBonusSalud(int bonusSalud) {
 		this.bonusSalud = bonusSalud;
 	}
 
+	/**
+	 * Hibernate. Setea el bonus de energía
+	 * @param bonusEnergia
+	 */
 	public void setBonusEnergia(int bonusEnergia) {
 		this.bonusEnergia = bonusEnergia;
 	}
 
+	/**
+	 * Hibernate. Setea el bonus de fuerza
+	 * @param bonusFuerza
+	 */
 	public void setBonusFuerza(int bonusFuerza) {
 		this.bonusFuerza = bonusFuerza;
 	}
 
+	/**
+	 * Hibernate. Setea el bonus de destreza
+	 * @param bonusDestreza
+	 */
 	public void setBonusDestreza(int bonusDestreza) {
 		this.bonusDestreza = bonusDestreza;
 	}
 
+	/**
+	 * Hibernate. Setea el bonus de inteligencia
+	 * @param bonusInteligencia
+	 */
 	public void setBonusInteligencia(int bonusInteligencia) {
 		this.bonusInteligencia = bonusInteligencia;
 	}

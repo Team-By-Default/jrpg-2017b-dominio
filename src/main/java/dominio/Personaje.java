@@ -20,14 +20,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 */
 	private int energia;
 	/**
-	 * Cantidad de habilidades que posee el personaje dada su casta.
-	 */
-	private static final int CANTHABILIDADESCASTA = 3;
-	/**
-	 * Cantidad de habilidades que posee el personaje dada su raza.
-	 */
-	private static final int CANTHABILIDADESRAZA = 2;
-	/**
 	 * Cantidad de niveles.
 	 */
 	private static final int CANTIDADNIVELES = 101;
@@ -170,20 +162,7 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	/**
 	 * Variable estática que contiene los niveles de personaje.
 	 */
-	private static int[] tablaDeNiveles;
-	/**
-	 * Habilidades obtenidas segun la raza del personaje.
-	 */
-	private String[] habilidadesRaza = new String[CANTHABILIDADESRAZA];
-	/**
-	 * Habilidades obtenidas segun la casta del personaje.
-	 */
-	private String[] habilidadesCasta = new String[CANTHABILIDADESCASTA];
-	/**
-	 * Nombre de la casta del personaje.
-	 */
-	private String nombreCasta;
-	
+	private static int[] tablaDeNiveles;	
 	/**
 	 * Multiplicador para daddys
 	 */
@@ -225,9 +204,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		aumentarFuerza(casta.recibirFuerzaBonus());
 		aumentarInteligencia(casta.recibirInteligenciaBonus());
 		nombreRaza = getNombreRaza();
-		nombreCasta = casta.getNombreCasta();
-		habilidadesRaza = getHabilidadesRaza();
-		habilidadesCasta = casta.getHabilidadesCasta();
 		salud = saludTope;
 		energia = energiaTope;
 		ataque = this.calcularPuntosDeAtaque();
@@ -520,9 +496,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	 * Magia depende de la inteligencia y de MULTIPLICADORMGA (constante).
 	 */
 	public final void modificarAtributos() {
-		/*
-		 * Tener en cuenta para cuando implementemos asignarPuntosSkills
-		 */
 		this.ataque = this.calcularPuntosDeAtaque();
 		this.aumentarDefensa(destreza);
 		this.magia = this.calcularPuntosDeMagia();
@@ -981,7 +954,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 		}
 		this.items = aux;
 	}
-
 	
 	/**
 	 * @return the multiDaddy
@@ -989,7 +961,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	public double getMultiDaddy() {
 		return this.multiDaddy;
 	}
-
 	
 	/**
 	 * @param multiDaddy the multiDaddy to set
@@ -997,7 +968,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	public void setMultiDaddy(double multiDaddy) {
 		this.multiDaddy = multiDaddy;
 	}
-
 	
 	/**
 	 * @return God or Not
@@ -1005,7 +975,6 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	public boolean isDios() {
 		return this.god;
 	}
-
 	
 	/**
 	 * @param god the god to set
@@ -1013,5 +982,4 @@ public abstract class Personaje extends MadreDeTodo implements Peleable, Seriali
 	public void setGod(boolean god) {
 		this.god = god;
 	}
-
 }

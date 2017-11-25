@@ -8,9 +8,6 @@ import java.util.Random;
  */
 public class MyRandom extends RandomGenerator {
 
-
-
-
 	/**Devuelve un número double que varía entre 0.0 y 1.0.
 	 * @return retorna un número double que varía entre 0.0 y 1.0
 	 */

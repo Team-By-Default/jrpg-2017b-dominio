@@ -73,9 +73,6 @@ public class NonPlayableCharacter extends MadreDeTodo implements Peleable {
 	 */
 	private int saludTope;
 
-	
-	
-	
 	/**
 	 * Constructor de la Clase.
 	 * Dependiendo de la dificultad que se pasa por parámetro al

@@ -72,11 +72,6 @@ public Asesino(final double probCrit, final double evasion, final double danioCr
 		if (caster.getEnergia() >= ENERGIAMINIMA) {
 			caster.reducirEnergia(ENERGIAMINIMA);
 			return atacado.serAtacado((int) (caster.getAtaque() * caster.getCasta().getDañoCritico()), caster) > 0;
-			/*
-			if (atacado.serAtacado((int) (caster.getAtaque() * caster.getCasta().getDañoCritico())) > 0) {
-				return true;
-			}
-			*/
 		}
 		return false;
 	}
